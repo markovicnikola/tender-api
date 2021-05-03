@@ -23,7 +23,7 @@ public class TenderServiceImpl implements TenderService {
   @Override
   public List<TenderDTO> getTendersForIssuer(Long issuerId) {
 
-    return tenderRepository.findByIssuer(issuerId)
+    return tenderRepository.findByIssuerId(issuerId)
         .stream()
         .map(TenderMapper::mapToTenderDto)
         .collect(Collectors.toList());

@@ -22,7 +22,7 @@ public class OfferServiceImpl implements OfferService {
 
   @Override
   public List<OfferDTO> getOffersForTender(Long tenderId) {
-    return offerRepository.findByTender(tenderId)
+    return offerRepository.findByTenderId(tenderId)
         .stream()
         .map(OfferMapper::mapToOfferDTO)
         .collect(Collectors.toList());
@@ -30,7 +30,7 @@ public class OfferServiceImpl implements OfferService {
 
   @Override
   public List<OfferDTO> getOffersForBidder(Long bidderId) {
-    return offerRepository.findByBidder(bidderId)
+    return offerRepository.findByBidderId(bidderId)
         .stream()
         .map(OfferMapper::mapToOfferDTO)
         .collect(Collectors.toList());
@@ -38,7 +38,7 @@ public class OfferServiceImpl implements OfferService {
 
   @Override
   public List<OfferDTO> getOffersForBidderAndTender(Long bidderId, Long tenderId) {
-    return offerRepository.findByBidderAndTender(bidderId, tenderId)
+    return offerRepository.findByBidderIdAndTenderId(bidderId, tenderId)
         .stream()
         .map(OfferMapper::mapToOfferDTO)
         .collect(Collectors.toList());

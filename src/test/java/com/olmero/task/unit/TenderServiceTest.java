@@ -29,7 +29,7 @@ public class TenderServiceTest {
   @Test
   public void testGetTendersForIssuer() {
 
-    Mockito.when(tenderRepository.findByIssuer(Mockito.anyLong())).thenReturn(createTenders());
+    Mockito.when(tenderRepository.findByIssuerId(Mockito.anyLong())).thenReturn(createTenders());
 
     List<TenderDTO> tendersForIssuer = tenderService.getTendersForIssuer(1L);
     Assertions.assertNotNull(tendersForIssuer);

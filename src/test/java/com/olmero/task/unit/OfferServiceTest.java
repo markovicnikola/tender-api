@@ -30,7 +30,7 @@ public class OfferServiceTest {
 
   @Test
   public void testGetOffersForTender() {
-    Mockito.when(offerRepository.findByTender(Mockito.anyLong())).thenReturn(createOffers());
+    Mockito.when(offerRepository.findByTenderId(Mockito.anyLong())).thenReturn(createOffers());
 
     List<OfferDTO> offersForTender = offerService.getOffersForTender(1L);
     Assertions.assertNotNull(offersForTender);
@@ -48,7 +48,7 @@ public class OfferServiceTest {
 
   @Test
   public void testGetOffersForBidder() {
-    Mockito.when(offerRepository.findByBidder(Mockito.anyLong())).thenReturn(createOffers());
+    Mockito.when(offerRepository.findByBidderId(Mockito.anyLong())).thenReturn(createOffers());
 
     List<OfferDTO> offersForTender = offerService.getOffersForBidder(1L);
     Assertions.assertNotNull(offersForTender);
@@ -66,7 +66,7 @@ public class OfferServiceTest {
 
   @Test
   public void testGetOffersForBidderAndTender() {
-    Mockito.when(offerRepository.findByBidderAndTender(Mockito.anyLong(), Mockito.anyLong())).thenReturn(createOffers());
+    Mockito.when(offerRepository.findByBidderIdAndTenderId(Mockito.anyLong(), Mockito.anyLong())).thenReturn(createOffers());
 
     List<OfferDTO> offersForTender = offerService.getOffersForBidderAndTender(1L, 1L);
     Assertions.assertNotNull(offersForTender);

@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface TenderRepository extends JpaRepository<Tender, Long> {
 
-  List<Tender> findByIssuer(Long issuerId);
+  List<Tender> findByIssuerId(Long issuerId);
 }
