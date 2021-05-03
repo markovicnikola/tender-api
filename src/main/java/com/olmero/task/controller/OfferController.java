@@ -21,14 +21,15 @@ public class OfferController {
     this.offerService = offerService;
   }
 
-  @GetMapping("/offers/{tenderId}")
+  @GetMapping("/offers-for-tender/{tenderId}")
   public ResponseEntity<List<OfferDTO>> getOffersForTender(@PathVariable Long tenderId) {
     List<OfferDTO> offers = offerService.getOffersForTender(tenderId);
     return ResponseEntity.ok(offers);
   }
 
-  @GetMapping("/offers/{bidderId}")
-  public ResponseEntity<List<OfferDTO>> getOffersForBidder(@PathVariable Long bidderId, @RequestParam(name = "tenderId") Long tenderId) {
+  @GetMapping("/offers-for-bidder/{bidderId}")
+  public ResponseEntity<List<OfferDTO>> getOffersForBidder(@PathVariable Long bidderId,
+                                                           @RequestParam(name = "tenderId", required = false) Long tenderId) {
     List<OfferDTO> offers = tenderId == null ? offerService.getOffersForBidder(bidderId)
         : offerService.getOffersForBidderAndTender(bidderId, tenderId);
     return ResponseEntity.ok(offers);
